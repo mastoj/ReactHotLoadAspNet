@@ -51,8 +51,8 @@ export default React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>Comments</h1>
-        <div>Successful server get requests: {this.state.value}</div>
+        <h1>Comments <span>(Successful server get requests: {this.state.value})</span>
+</h1>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>

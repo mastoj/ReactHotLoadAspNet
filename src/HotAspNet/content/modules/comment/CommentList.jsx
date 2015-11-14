@@ -11,7 +11,7 @@ export default React.createClass({
             );});
         return (
             <div className="commentList">
-                This rocks, don't you think?! {commentNodes}
+                {commentNodes}
             </div>
         );
 }});

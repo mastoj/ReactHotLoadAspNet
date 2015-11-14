@@ -9,10 +9,12 @@ export default React.createClass({
     render: function() {
         return (
           <div className="comment">
-            <h2 className="commentAuthor">
+            <h2 className="comment-author">
               Author : {this.props.author}
             </h2>
-            <span dangerouslySetInnerHTML={this.rawMarkup()} />
+            <div className="comment-text">
+                <span dangerouslySetInnerHTML={this.rawMarkup()} />
+            </div>
         </div>
       );
     }

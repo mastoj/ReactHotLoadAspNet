@@ -1,3 +1,4 @@
+import './app.less';
 import CommentBox from './modules/comment/CommentBox';
 import React from 'react';
 import ReactDOM from 'react-dom';
