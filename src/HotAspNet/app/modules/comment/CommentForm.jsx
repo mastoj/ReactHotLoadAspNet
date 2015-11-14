@@ -5,7 +5,6 @@ export default React.createClass({
     e.preventDefault();
     var author = this.refs.author.value.trim();
     var text = this.refs.text.value.trim();
-    alert(author + " should have said: " + text);
     if (!text || !author) {
       return;
     }

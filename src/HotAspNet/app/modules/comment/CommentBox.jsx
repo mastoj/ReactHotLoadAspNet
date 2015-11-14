@@ -10,14 +10,14 @@ var data = [
     {author: "Jordan Walke", text: "This is *another* comment from Jordan", id: 2}
 ];
 
-var CommentBox = React.createClass({
+export default React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({data: data});
+        this.setState({data: data, value: this.state.value + 1});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -26,8 +26,8 @@ var CommentBox = React.createClass({
   },
   handleCommentSubmit: function(comment) {
       var comments = this.state.data;
-          var newComments = comments.concat([comment]);
-          this.setState({data: newComments, value: this.state.value + 123});
+      var newComments = comments.concat([comment]);
+      this.setState({data: newComments});
       $.ajax({
         url: this.props.url,
         dataType: 'json',
@@ -52,14 +52,10 @@ var CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <h1>Comments</h1>
-        <div>{this.state.value}</div>
+        <div>Successful server get requests: {this.state.value}</div>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
   }
 });
-ReactDOM.render(
-    <CommentBox url="/api/comments" pollInterval={2000} />,
-    document.getElementById('content')
-);
