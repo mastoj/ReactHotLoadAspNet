@@ -5,11 +5,6 @@ import ReactDOM from 'react-dom';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
-var data = [
-    {author: "Pete Hunt", text: "This is one comment", id: 1},
-    {author: "Jordan Walke", text: "This is *another* comment from Jordan", id: 2}
-];
-
 export default React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
@@ -17,7 +12,7 @@ export default React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({data: data, value: this.state.value + 1});
+        this.setState({data: data, value: this.state.value - 12});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());

@@ -10,7 +10,7 @@ export default React.createClass({
         return (
           <div className="comment">
             <h2 className="comment-author">
-              Author : {this.props.author}
+              Author name : {this.props.author}
             </h2>
             <div className="comment-text">
                 <span dangerouslySetInnerHTML={this.rawMarkup()} />
